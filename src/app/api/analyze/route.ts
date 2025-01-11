@@ -129,6 +129,10 @@ Keep each section focused and actionable.`
 
       const analysis = completion.choices[0].message.content
 
+      if (!analysis) {
+        return NextResponse.json({ error: 'Failed to generate analysis' }, { status: 500 })
+      }
+
       // Split on ### or double newlines to separate major sections
       const sections = analysis
         .split(/(?=###)|(?:\n\n+)/)
