@@ -211,7 +211,7 @@ export function FileUpload() {
                     <h3 className="text-lg font-semibold text-gray-900">Key Metrics Analysis</h3>
                   </div>
                   <div className="pl-3 space-y-4">
-                    {analysisResults.csvAnalysis?.metrics.split('•').map((metric, index) => {
+                    {analysisResults.csvAnalysis?.metrics?.split('•')?.filter(Boolean).map((metric, index) => {
                       if (!metric.trim()) return null;
                       return (
                         <div key={index} className="bg-white p-4 rounded-md shadow-sm">
